@@ -46,7 +46,7 @@ export class TypeHeadDemoComponent {
     this.historyDeduction = Math.floor(Math.random() * (1100 - 700 + 1) + 700);
     this.remainingLoan = Math.floor(Math.random() * (1100 - 700 + 1) + 700);
     this.otherDeductions = 170;
-    this.finalTrade = (this.tradeInValue) - Number(this.historyDeduction) - Number(this.remainingLoan) - Number(this.otherDeductions);
+    //this.finalTrade = (this.tradeInValue) - Number(this.historyDeduction) - Number(this.remainingLoan) - Number(this.otherDeductions);
 
 
   }
