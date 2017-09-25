@@ -10,14 +10,20 @@ export class TypeHeadDemoComponent {
   tradeInValue = 12000;
   isCalculated = false;
   isPanel = false;
+  isFinalResult = false;
+  historyDeduction;
+  remainingLoan;
+  otherDeductions;
+  finalTrade;
+
   protected searchStr: string;
   protected captain: string;
   protected dataService: CompleterData;
   protected searchData = [
-    { color: '2015 Acura ILX Base 4D Sedan at', value: '$ 14,130' },
-    { color: '2015 Acura ILX Dynamic 4D Sedan 6sp', value: '$ 17,030' },
-    { color: '2015 Acura ILX IMA 4D Sedan at', value: '$ 20,030' },
-    { color: '2015 Acura ILX Premium 4D Sedan at', value: '$ 16,430' },
+    { color: '2015 Acura ILX Base 4D Sedan at', value: 14130 },
+    { color: '2015 Acura ILX Dynamic 4D Sedan 6sp', value: 17030 },
+    { color: '2015 Acura ILX IMA 4D Sedan at', value: 20030 },
+    { color: '2015 Acura ILX Premium 4D Sedan at', value: 16430 },
   ];
 
   constructor(private completerService: CompleterService) {
@@ -33,6 +39,16 @@ export class TypeHeadDemoComponent {
 
   getVin() {
     this.isPanel = true;
+  }
+
+  getLoanRemaining() {
+    this.isFinalResult = true;
+    this.historyDeduction = Math.floor(Math.random() * (1100 - 700 + 1) + 700);
+    this.remainingLoan = Math.floor(Math.random() * (1100 - 700 + 1) + 700);
+    this.otherDeductions = 170;
+    this.finalTrade = (this.tradeInValue) - Number(this.historyDeduction) - Number(this.remainingLoan) - Number(this.otherDeductions);
+
+
   }
 
 }
